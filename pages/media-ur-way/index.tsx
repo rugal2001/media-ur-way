@@ -2,6 +2,7 @@ import Faq from "@/modules/media-your-way/Faq";
 import Header from "@/modules/media-your-way/Header";
 import Hero from "@/modules/media-your-way/Hero";
 import ServicesCategories from "@/modules/media-your-way/ServicesCategories";
+import Formations from "@/modules/media-your-way/ServicesCategories/patterns/formations";
 import Temoignages from "@/modules/media-your-way/temoignage";
 const MediaUrWay = () => {
   const phoneNumber = "0766361293";
@@ -13,6 +14,9 @@ const MediaUrWay = () => {
       </div>
       <div id="services">
         <ServicesCategories phoneNumber={phoneNumber} />
+      </div>
+      <div id="formations">
+        <Formations phoneNumber={phoneNumber} />{" "}
       </div>
       <div id="temoignages">
         <Temoignages />

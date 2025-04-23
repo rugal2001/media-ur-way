@@ -54,7 +54,10 @@ const Hero = () => {
           >
             Nos Services
           </button>
-          <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-3.5 font-semibold text-[#568ed9] transition-all duration-300 bg-white border-2 border-[#568ed9] rounded-lg shadow-md hover:shadow-[#edf4fc]/50 hover:bg-[#f5f9fe] hover:translate-y-[-2px] transform active:translate-y-[1px]">
+          <button
+            onClick={() => scrollToSection("faq")}
+            className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-3.5 font-semibold text-[#568ed9] transition-all duration-300 bg-white border-2 border-[#568ed9] rounded-lg shadow-md hover:shadow-[#edf4fc]/50 hover:bg-[#f5f9fe] hover:translate-y-[-2px] transform active:translate-y-[1px]"
+          >
             En Savoir Plus
           </button>
         </div>
