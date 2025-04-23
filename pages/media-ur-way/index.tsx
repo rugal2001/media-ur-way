@@ -4,7 +4,7 @@ import Hero from "@/modules/media-your-way/Hero";
 import ServicesCategories from "@/modules/media-your-way/ServicesCategories";
 import Temoignages from "@/modules/media-your-way/temoignage";
 const MediaUrWay = () => {
-  const phoneNumber = "0646585820";
+  const phoneNumber = "0766361293";
   return (
     <div className="h-screen min-w-full overflow-auto bg-white">
       <Header />

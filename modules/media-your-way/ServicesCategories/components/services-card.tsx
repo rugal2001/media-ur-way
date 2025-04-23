@@ -17,7 +17,7 @@ const ServicesCard = ({
 }: ServicesCardProps) => {
   const sendMessageWa = () => {
     const encodedMessage = encodeURIComponent(
-      `Je veux m'inscrire à la formation *${title}*`
+      `Je suis intéressé par le service ${title}`
     );
 
     const phoneFormat = String(phoneNumber).slice(1);
