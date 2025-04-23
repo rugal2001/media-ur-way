@@ -4,6 +4,7 @@ import Hero from "@/modules/media-your-way/Hero";
 import ServicesCategories from "@/modules/media-your-way/ServicesCategories";
 import Temoignages from "@/modules/media-your-way/temoignage";
 const MediaUrWay = () => {
+  const phoneNumber = "0646585820";
   return (
     <div className="h-screen min-w-full overflow-auto bg-white">
       <Header />
@@ -11,7 +12,7 @@ const MediaUrWay = () => {
         <Hero />
       </div>
       <div id="services">
-        <ServicesCategories />
+        <ServicesCategories phoneNumber={phoneNumber} />
       </div>
       <div id="temoignages">
         <Temoignages />

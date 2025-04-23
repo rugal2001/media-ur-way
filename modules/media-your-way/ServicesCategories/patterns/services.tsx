@@ -1,7 +1,7 @@
 import ServicesCard from "../components/services-card";
 import API from "@/router/index";
 import { Loader } from "@mantine/core";
-const Services = () => {
+const Services = ({ phoneNumber }: { phoneNumber: string }) => {
   const {
     data: Servicess,
     isLoading,
@@ -21,35 +21,36 @@ const Services = () => {
     );
   }
   return (
-    <div className="relative ">
-      <div className="absolute top-0 left-0 w-64 h-64 -mt-20 -ml-20 bg-[#7daae6] rounded-full opacity-20 blur-3xl"></div>
+    <div className="">
+      {Servicess.length > 0 ? (
+        <div className="container px-4 mx-auto">
+          <div className="max-w-3xl mx-auto mb-16 text-center">
+            <span className="inline-block px-4 py-1 mb-4 text-sm font-medium text-[#568ed9] bg-[#edf4fc] rounded-full shadow-sm">
+              Nos Services
+            </span>
+            <h2 className="mb-6 text-3xl font-bold text-gray-800 md:text-4xl">
+              Solutions Digitales Adaptées à Vos Besoins
+            </h2>
+            <div className="w-20 h-1.5 mx-auto mb-8 bg-gradient-to-r from-[#7daae6] to-[#568ed9] rounded-full"></div>
+            <p className="text-lg text-gray-600">
+              Découvrez notre gamme complète de services digitaux conçus pour
+              propulser votre entreprise vers de nouveaux sommets.
+            </p>
+          </div>
 
-      <div className="container px-4 mx-auto">
-        <div className="max-w-3xl mx-auto mb-16 text-center">
-          <span className="inline-block px-4 py-1 mb-4 text-sm font-medium text-[#568ed9] bg-[#edf4fc] rounded-full shadow-sm">
-            Nos Services
-          </span>
-          <h2 className="mb-6 text-3xl font-bold text-gray-800 md:text-4xl">
-            Solutions Digitales Adaptées à Vos Besoins
-          </h2>
-          <div className="w-20 h-1.5 mx-auto mb-8 bg-gradient-to-r from-[#7daae6] to-[#568ed9] rounded-full"></div>
-          <p className="text-lg text-gray-600">
-            Découvrez notre gamme complète de services digitaux conçus pour
-            propulser votre entreprise vers de nouveaux sommets.
-          </p>
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {Servicess?.map((service, index) => (
+              <ServicesCard
+                key={index}
+                title={service.title}
+                description={service.description}
+                imageSrc={service.image}
+                phoneNumber={phoneNumber}
+              />
+            ))}
+          </div>
         </div>
-
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {Servicess?.map((service, index) => (
-            <ServicesCard
-              key={index}
-              title={service.title}
-              description={service.description}
-              imageSrc={service.image}
-            />
-          ))}
-        </div>
-      </div>
+      ) : null}
     </div>
   );
 };

@@ -53,7 +53,7 @@ const Temoignages = () => {
       {apiTestimonials.length > 0 ? (
         <>
           <div className="relative py-16">
-            <div className="absolute top-0 right-0 w-64 h-64 -mt-20 -mr-20 bg-[#7daae6] rounded-full opacity-20 blur-3xl"></div>
+            <div className="absolute top-0 right-0 w-64 h-64 -mt-20   bg-[#83ade3] rounded-full opacity-20 blur-3xl"></div>
 
             <div className="container px-4 mx-auto">
               <div className="max-w-3xl mx-auto mb-16 text-center">

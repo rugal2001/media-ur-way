@@ -49,7 +49,7 @@ const faqDigitalMarketer = {
 
 const Faq = () => {
   return (
-    <div className="max-w-6xl py-16 mx-auto">
+    <div className="max-w-6xl px-6 py-16 mx-auto md:px-0">
       <div className="max-w-3xl mx-auto mb-16 text-center">
         <span className="inline-block px-4 py-1 mb-4 text-sm font-medium text-[#568ed9] bg-[#edf4fc] rounded-full shadow-sm">
           FAQ

@@ -1,8 +1,15 @@
 const Hero = () => {
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <div className="relative flex flex-col items-center justify-center px-4 py-12 overflow-hidden sm:px-8 md:px-12 md:py-24">
-      <div className="absolute top-0 right-0 w-48 h-48 md:w-64 md:h-64 -mt-10 -mr-10 md:-mt-20 md:-mr-20 bg-[#7daae6] rounded-full opacity-20 blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-48 h-48 md:w-72 md:h-72 -mb-10 -ml-10 md:-mb-20 md:-ml-20 bg-[#7daae6] rounded-full opacity-20 blur-3xl"></div>
+    <div className="relative flex flex-col items-center justify-center px-4 py-12 sm:px-8 md:px-12 md:py-24">
+      <div className="absolute top-0 right-0 w-48 h-48 md:w-64 md:h-64 -mt-10  md:-mt-20  bg-[#7daae6] rounded-full opacity-20 blur-3xl"></div>
+      {/* <div className="absolute bottom-0 left-0 w-48 -ml-32 h-48 md:w-72 md:h-72 -mb-10 md:-mb-20 md:-ml-20 bg-[#7daae6] rounded-full opacity-20 blur-3xl"></div> */}
 
       <div className="absolute w-full h-full max-w-5xl transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
         <div
@@ -41,7 +48,10 @@ const Hero = () => {
         </p>
 
         <div className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
-          <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-3.5 font-semibold text-white transition-all duration-300 bg-gradient-to-r from-[#568ed9] to-[#3a7bce] rounded-lg shadow-lg hover:shadow-[#a7c5ed]/50 hover:translate-y-[-2px] transform active:translate-y-[1px]">
+          <button
+            onClick={() => scrollToSection("services")}
+            className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-3.5 font-semibold text-white transition-all duration-300 bg-gradient-to-r from-[#568ed9] to-[#3a7bce] rounded-lg shadow-lg hover:shadow-[#a7c5ed]/50 hover:translate-y-[-2px] transform active:translate-y-[1px]"
+          >
             Nos Services
           </button>
           <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-3.5 font-semibold text-[#568ed9] transition-all duration-300 bg-white border-2 border-[#568ed9] rounded-lg shadow-md hover:shadow-[#edf4fc]/50 hover:bg-[#f5f9fe] hover:translate-y-[-2px] transform active:translate-y-[1px]">

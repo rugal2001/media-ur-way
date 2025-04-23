@@ -1,46 +1,7 @@
 import FormationCard from "../components/formation-card";
 import API from "@/router/index";
 import { Loader } from "@mantine/core";
-const Formations = () => {
-  const formationsData = [
-    {
-      title: "Marketing Digital Avancé",
-      description:
-        "Maîtrisez les stratégies de marketing digital pour développer votre présence en ligne et générer plus de leads.",
-      imageSrc: "/images/formations/digital-marketing.jpg",
-    },
-    {
-      title: "Gestion des Réseaux Sociaux",
-      description:
-        "Apprenez à créer et gérer des campagnes efficaces sur les principales plateformes sociales.",
-      imageSrc: "/images/formations/social-media.jpg",
-    },
-    {
-      title: "SEO & Référencement",
-      description:
-        "Découvrez les techniques pour optimiser votre site web et améliorer votre classement dans les moteurs de recherche.",
-      imageSrc: "/images/formations/seo.jpg",
-    },
-    {
-      title: "Content Marketing",
-      description:
-        "Créez du contenu engageant qui convertit vos visiteurs en clients fidèles.",
-      imageSrc: "/images/formations/content-marketing.jpg",
-    },
-    {
-      title: "Publicité en Ligne",
-      description:
-        "Optimisez vos campagnes publicitaires sur Google, Facebook et autres plateformes pour maximiser votre ROI.",
-      imageSrc: "/images/formations/online-ads.jpg",
-    },
-    {
-      title: "Analyse de Données",
-      description:
-        "Interprétez les données de vos campagnes pour prendre des décisions marketing basées sur les résultats.",
-      imageSrc: "/images/formations/data-analysis.jpg",
-    },
-  ];
-
+const Formations = ({ phoneNumber }: { phoneNumber: string }) => {
   const {
     data: Formations,
     isLoading,
@@ -61,36 +22,41 @@ const Formations = () => {
   }
 
   return (
-    <div className="relative py-16">
-      <div className="absolute top-0 right-0 w-64 h-64 -mt-20 -mr-20 bg-[#7daae6] rounded-full opacity-20 blur-3xl"></div>
+    <>
+      {Formations.length > 0 ? (
+        <div className="relative py-16" id="formations">
+          <div className="absolute top-0 right-0 w-64 h-64 -mt-20  bg-[#7daae6] rounded-full opacity-20 blur-3xl"></div>
 
-      <div className="container px-4 mx-auto">
-        <div className="max-w-3xl mx-auto mb-16 text-center">
-          <span className="inline-block px-4 py-1 mb-4 text-sm font-medium text-[#568ed9] bg-[#edf4fc] rounded-full shadow-sm">
-            Nos Formations
-          </span>
-          <h2 className="mb-6 text-3xl font-bold text-gray-800 md:text-4xl">
-            Développez Vos Compétences Digitales
-          </h2>
-          <div className="w-20 h-1.5 mx-auto mb-8 bg-gradient-to-r from-[#7daae6] to-[#568ed9] rounded-full"></div>
-          <p className="text-lg text-gray-600">
-            Des formations professionnelles pour vous aider à maîtriser les
-            outils et stratégies du marketing digital.
-          </p>
-        </div>
+          <div className="container px-4 mx-auto">
+            <div className="max-w-3xl mx-auto mb-16 text-center">
+              <span className="inline-block px-4 py-1 mb-4 text-sm font-medium text-[#568ed9] bg-[#edf4fc] rounded-full shadow-sm">
+                Nos Formations
+              </span>
+              <h2 className="mb-6 text-3xl font-bold text-gray-800 md:text-4xl">
+                Développez Vos Compétences Digitales
+              </h2>
+              <div className="w-20 h-1.5 mx-auto mb-8 bg-gradient-to-r from-[#7daae6] to-[#568ed9] rounded-full"></div>
+              <p className="text-lg text-gray-600">
+                Des formations professionnelles pour vous aider à maîtriser les
+                outils et stratégies du marketing digital.
+              </p>
+            </div>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {Formations?.map((formation, index) => (
-            <FormationCard
-              key={index}
-              title={formation.title}
-              description={formation.description}
-              imageSrc={formation.image}
-            />
-          ))}
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {Formations?.map((formation, index) => (
+                <FormationCard
+                  key={index}
+                  title={formation.title}
+                  description={formation.description}
+                  imageSrc={formation.image}
+                  phoneNumber={phoneNumber}
+                />
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      ) : null}
+    </>
   );
 };
 

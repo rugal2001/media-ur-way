@@ -1,6 +1,38 @@
-const FormationCard = ({ title, description, imageSrc }) => {
+import { FaWhatsapp } from "react-icons/fa";
+import { FiPhone } from "react-icons/fi";
+
+const FormationCard = ({
+  title,
+  description,
+  imageSrc,
+  phoneNumber,
+}: {
+  title: string;
+  description: string;
+  imageSrc: string;
+  phoneNumber: string;
+}) => {
+  const sendMessageWa = () => {
+    const encodedMessage = encodeURIComponent(
+      `Je veux m'inscrire à la formation ${title}`
+    );
+
+    const phoneFormat = String(phoneNumber).slice(1);
+
+    const whatsappLink = `https://wa.me/${phoneFormat}?text=${encodedMessage}`;
+
+    window.open(whatsappLink, "_blank");
+  };
+
+  const callPhoneNumber = () => {
+    const telLink = `tel:${phoneNumber}`;
+    window.open(telLink, "_blank");
+  };
   return (
-    <div className="relative group bg-white border border-gray-200 rounded-xl overflow-hidden transition-all duration-300 hover:border-[#568ed9]">
+    <div
+      className="relative group bg-white border border-gray-200 rounded-xl overflow-hidden transition-all duration-300 hover:border-[#568ed9] cursor-pointer"
+      onClick={sendMessageWa}
+    >
       <div className="absolute top-0 right-0 z-10 p-2">
         <span className="inline-block px-3 py-1 text-xs font-semibold text-white bg-[#568ed9] rounded-full">
           Formation
@@ -20,25 +52,19 @@ const FormationCard = ({ title, description, imageSrc }) => {
           {title}
         </h3>
         <p className="mb-5 text-sm text-gray-600">{description}</p>
-        <div className="flex items-center justify-between pt-3 mt-4 border-t border-gray-100">
-          <span className="text-xs text-gray-500">6 modules • 24h</span>
-          <button className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-[#568ed9] transition-colors duration-300 border border-[#568ed9] rounded-full hover:bg-[#568ed9] hover:text-white">
-            <span>Découvrir</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M5 12h14"></path>
-              <path d="M12 5l7 7-7 7"></path>
-            </svg>
-          </button>
+        <div className="flex items-center justify-end gap-2 pt-3 mt-4 border-t border-gray-100">
+          <a
+            onClick={callPhoneNumber}
+            className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-[#568ed9] transition-colors duration-300 border border-[#568ed9] rounded-full cursor-pointer hover:bg-[#568ed9] hover:text-white"
+          >
+            <FiPhone className="w-5 h-5 " />
+          </a>
+          <a
+            onClick={sendMessageWa}
+            className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-green-400 transition-colors duration-300 border border-green-300 rounded-full cursor-pointer hover:bg-green-400 hover:text-white"
+          >
+            <FaWhatsapp className="w-5 h-5 " />
+          </a>
         </div>
       </div>
     </div>
