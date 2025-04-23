@@ -1,9 +1,4 @@
-import { useRouter } from "next/router";
 import Services from "./patterns/services";
-import { useEffect, useState } from "react";
-import { Loader } from "@mantine/core";
-import API from "@/router/index";
-import Formations from "./patterns/formations";
 const ServicesCategories = ({ phoneNumber }: { phoneNumber: string }) => {
   return (
     <div className="relative">

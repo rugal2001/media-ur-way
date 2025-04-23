@@ -55,7 +55,7 @@ const Temoignages = () => {
           <div className="relative py-16">
             <div className="absolute top-0 right-0 w-64 h-64 -mt-20   bg-[#83ade3] rounded-full opacity-20 blur-3xl"></div>
 
-            <div className="container px-4 mx-auto">
+            <div className="px-4 mx-auto md:container">
               <div className="max-w-3xl mx-auto mb-16 text-center">
                 <span className="inline-block px-4 py-1 mb-4 text-sm font-medium text-[#568ed9] bg-[#edf4fc] rounded-full shadow-sm">
                   Témoignages

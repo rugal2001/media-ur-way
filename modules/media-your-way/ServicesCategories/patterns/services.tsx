@@ -23,7 +23,7 @@ const Services = ({ phoneNumber }: { phoneNumber: string }) => {
   return (
     <div className="">
       {Servicess.length > 0 ? (
-        <div className="container px-4 mx-auto">
+        <div className="px-4 md:container md:mx-auto">
           <div className="max-w-3xl mx-auto mb-16 text-center">
             <span className="inline-block px-4 py-1 mb-4 text-sm font-medium text-[#568ed9] bg-[#edf4fc] rounded-full shadow-sm">
               Nos Services
