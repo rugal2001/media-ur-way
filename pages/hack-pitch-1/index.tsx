@@ -5,6 +5,7 @@ function HomePage() {
   return (
     <Center>
       <HackPitch />
+      test
     </Center>
   );
 }
