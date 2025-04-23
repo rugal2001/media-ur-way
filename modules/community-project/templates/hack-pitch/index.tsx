@@ -1,3 +1,4 @@
+// 0766361293
 import {
   Container,
   Title,
@@ -30,8 +31,9 @@ export default function ArtisanaMaroc() {
     isLoading,
     error,
   } = API.public.useFirstCommunityProject(
-    "https://script.google.com/macros/s/AKfycbxG7nDHGnULFElnqgtSlnXu2uQO14NfhN_Rwkxp5Q6kNWowxO0YCcP0gOERMZgse74/exec"
+    "https://script.google.com/macros/s/1OF9FhSOx4GvIiMGG0D_drx6VickWZFwz5ZHcYTHzdGs/exec"
   );
+
   useEffect(() => {
     const productId = router.query.productId;
     if (productId) {
@@ -54,6 +56,8 @@ export default function ArtisanaMaroc() {
       </div>
     );
   }
+
+  console.log({ products });
 
   return (
     <>

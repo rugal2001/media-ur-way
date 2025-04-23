@@ -1,10 +1,10 @@
-import HackPitch from "@/modules/community-project/templates/hack-pitch";
 import { Center } from "@mantine/core";
+import MediaUrWay from "./media-ur-way";
 
 function HomePage() {
   return (
     <Center>
-      <HackPitch />
+      <MediaUrWay />
     </Center>
   );
 }
