@@ -8,6 +8,7 @@ import {
   Badge,
   Button,
   Group,
+  Loader,
 } from "@mantine/core";
 import { motion } from "framer-motion";
 
@@ -19,13 +20,18 @@ import { Drawer, DrawerContent } from "@/components/drawer";
 import { MdPhoneInTalk } from "react-icons/md";
 import API from "@/router/index";
 
-
 export default function ArtisanaMaroc() {
   const router = useRouter();
   const [isProductSelected, setIsProductSelected] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
-  const { data: products, isLoading, error } = API.public.useFirstCommunityProject("https://script.google.com/macros/s/AKfycbxG7nDHGnULFElnqgtSlnXu2uQO14NfhN_Rwkxp5Q6kNWowxO0YCcP0gOERMZgse74/exec");
+  const {
+    data: products,
+    isLoading,
+    error,
+  } = API.public.useFirstCommunityProject(
+    "https://script.google.com/macros/s/AKfycbxG7nDHGnULFElnqgtSlnXu2uQO14NfhN_Rwkxp5Q6kNWowxO0YCcP0gOERMZgse74/exec"
+  );
   useEffect(() => {
     const productId = router.query.productId;
     if (productId) {
@@ -42,9 +48,12 @@ export default function ArtisanaMaroc() {
     return <div>Error: {error.message}</div>;
   }
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex items-center justify-center w-full min-h-screen">
+        <Loader color="gray" size="sm" />
+      </div>
+    );
   }
-
 
   return (
     <>
@@ -243,7 +252,6 @@ const Hero = ({ handleScroll }) => {
                 En savoir plus
               </motion.button>
             </div>
-
           </motion.div>
         </div>
 

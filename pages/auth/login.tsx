@@ -4,7 +4,6 @@ import { signIn, useSession } from "next-auth/react";
 import { useForm } from "@mantine/form";
 import { useDisclosure } from "@mantine/hooks";
 import { Button, Center, Loader, TextInput } from "@mantine/core";
-import { RedirectComponent } from "@/modules/_shared/components";
 
 export default function Login() {
   const router = useRouter();
@@ -56,7 +55,7 @@ export default function Login() {
       }
     } catch (error) {}
 
-    return <RedirectComponent to={baseUrl} query={queryParams} />;
+    return <div>Redirect Component goes here</div>;
   }
 
   return (

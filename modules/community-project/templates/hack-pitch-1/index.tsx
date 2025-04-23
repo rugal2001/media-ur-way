@@ -8,6 +8,7 @@ import {
   Badge,
   Button,
   Group,
+  Loader,
 } from "@mantine/core";
 import { motion } from "framer-motion";
 
@@ -18,8 +19,6 @@ import { useEffect, useState } from "react";
 import { Drawer, DrawerContent } from "@/components/drawer";
 import { MdPhoneInTalk } from "react-icons/md";
 import API from "@/router/index";
-
-
 
 const products = [
   {
@@ -78,7 +77,7 @@ const products = [
     id: 5,
     title: "<h2>Soin capillaire</h2>",
     category: "Décoration",
-    price: "599 DH",    
+    price: "599 DH",
     image:
       "https://screendy-cdn.fra1.cdn.digitaloceanspaces.com/platfrom-v2/_files/file_1734161963289_WhatsAppImage2024-12-14at0833532.jpeg",
     shortDescription:
@@ -106,7 +105,13 @@ export default function ArtisanaMaroc() {
   const router = useRouter();
   const [isProductSelected, setIsProductSelected] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const { data: products, isLoading, error } = API.public.useFirstCommunityProject("https://script.google.com/macros/s/AKfycbw4awv_xN0X1_6NqX0PE502OZ58_f7czvl4bNxrHC6H_wv05FmpNb1oihcqRo_-0omW_g/exec");
+  const {
+    data: products,
+    isLoading,
+    error,
+  } = API.public.useFirstCommunityProject(
+    "https://script.google.com/macros/s/AKfycbw4awv_xN0X1_6NqX0PE502OZ58_f7czvl4bNxrHC6H_wv05FmpNb1oihcqRo_-0omW_g/exec"
+  );
 
   useEffect(() => {
     const productId = router.query.productId;
@@ -125,7 +130,11 @@ export default function ArtisanaMaroc() {
   }
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex items-center justify-center w-full min-h-screen">
+        <Loader color="gray" size="sm" />
+      </div>
+    );
   }
   return (
     <>

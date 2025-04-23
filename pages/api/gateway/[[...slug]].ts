@@ -1,6 +1,5 @@
 import jwt from "jsonwebtoken";
 import axios, { AxiosResponse, Method } from "axios";
-import getServerAuthSession from "@/lib/get-server-auth-session";
 
 import type { NextApiRequest, NextApiResponse } from "next";
 
@@ -15,41 +14,6 @@ export default async function handler(
   let token = null;
 
   const originalUrl = req.url.replace("/api/gateway", "");
-
-  if (isPrivateRoute(originalUrl)) {
-    const session = await getServerAuthSession({ req, res });
-    const isUserAuthenticated = !!session && !!session?.user?.id;
-
-    if (!isUserAuthenticated) {
-      return res.status(401).json({
-        success: false,
-        message: "You must be logged in.",
-      });
-    }
-
-    token = generateTokenByUser(session.user.id);
-
-    if (!token) {
-      return res.status(498).json({
-        success: false,
-        message: "Error in generate token",
-      });
-    }
-
-    forwardedHeaders["Authorization"] = `Bearer ${token}`;
-  } else {
-    // Generate a token for public routes
-    token = generateTokenByUser(null);
-
-    if (!token) {
-      return res.status(498).json({
-        success: false,
-        message: "Error in generate token for public route",
-      });
-    }
-
-    forwardedHeaders["Authorization"] = `Bearer ${token}`;
-  }
 
   // HACK
   const reqUrl = `${BACKEND_BASE_EP}${originalUrl}`;

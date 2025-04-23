@@ -1,4 +1,3 @@
-import { RedirectComponent } from "@/modules/_shared/components";
 import { Center, Loader } from "@mantine/core";
 import { useSession } from "next-auth/react";
 
@@ -7,14 +6,14 @@ export default function VerifyEmail() {
 
   if (status === "loading") {
     return (
-      <div className="min-h-screen w-full flex items-center justify-center">
+      <div className="flex items-center justify-center w-full min-h-screen">
         Loading ..
       </div>
     );
   }
 
   if (status === "authenticated") {
-    return <RedirectComponent to={`/`} />;
+    return <div>Redirect Component goes here</div>;
   }
 
   return (

@@ -5,7 +5,8 @@ import { useRouter } from "next/router";
 import { FcGoogle } from "react-icons/fc";
 import { Button } from "@/components/shadcn-button";
 import { FaCheckCircle } from "react-icons/fa";
-import LoadingComponent from "@/modules/_shared/components/loading-platform";
+import { Loader } from "@mantine/core";
+// import LoadingComponent from "@/modules/_shared/components/loading-platform";
 
 interface AuthPlatformProps {
   onClose?: () => void;
@@ -34,7 +35,8 @@ const AuthPlatform: React.FC<AuthPlatformProps> = ({
   if (status === "loading") {
     return (
       <div className="flex items-center justify-center w-full min-h-screen">
-        <LoadingComponent />
+        {/* <LoadingComponent /> */}
+        <Loader color="gray" size="sm" />
       </div>
     );
   }
